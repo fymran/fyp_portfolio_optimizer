@@ -163,8 +163,8 @@ def _print_strategy_table(rows: list[dict]) -> None:
     """Print the per-strategy comparison table in Markdown."""
     # Header
     header = (
-        "| Strategy | w_ASB | w_TH | w_KWSP | w_SSPN | w_GO+ | "
-        "Net Return | Liquidity | Tax Relief | Zakat | Violations |"
+        "|           Strategy           |  w_ASB  |   w_TH  | w__KWSP | w__SSPN |  w_GO+  | "
+        "Net Return | Liquidity |   Tax Relief   |      Zakat     | Violations |"
     )
     sep = "|" + "|".join(["-" * max(3, len(h)) for h in header.split("|")[1:-1]]) + "|"
     print(header)
@@ -180,10 +180,10 @@ def _print_strategy_table(rows: list[dict]) -> None:
             f"| {_w(w[3]):>7} "
             f"| {_w(w[4]):>7} "
             f"| {_pct(r['net_return']):>10} "
-            f"| {r['liquidity_score']:.4f} "
+            f"|   {r['liquidity_score']:.4f}  "
             f"| {_rm(r['tax_relief_rm']):>14} "
             f"| {_rm(r['zakat_rm']):>14} "
-            f"| {viol} |"
+            f"|   {viol}   |"
         )
     print()
 
@@ -191,12 +191,12 @@ def _print_strategy_table(rows: list[dict]) -> None:
 def _print_front_metrics(hv: float, sp: float, cfr: float, K: int) -> None:
     """Print NSGA-II Pareto-front quality metrics."""
     print("### NSGA-II Front Quality Metrics\n")
-    print(f"| Metric | Value |")
-    print(f"|--------|-------|")
-    print(f"| Pareto Solutions (K)      | {K} |")
-    print(f"| Hypervolume (HV)          | {hv:.6f} |")
-    print(f"| Spacing (S)               | {sp:.6f} |")
-    print(f"| Constraint Feasibility Rate (CFR) | {cfr:.1f}% |")
+    print(f"|              Metric               |     Value     |")
+    print(f"|-----------------------------------|---------------|")
+    print(f"| Pareto Solutions (K)              |      {K}      |")
+    print(f"| Hypervolume (HV)                  |    {hv:.6f}   |")
+    print(f"| Spacing (S)                       |   {sp:.6f}    |")
+    print(f"| Constraint Feasibility Rate (CFR) |   {cfr:.1f}%  |")
     print()
 
 
