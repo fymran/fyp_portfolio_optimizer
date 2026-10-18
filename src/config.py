@@ -28,7 +28,7 @@ ASSET_INDEX: dict[str, int] = {name: i for i, name in enumerate(ASSETS)}
 #   KWSP : 5.40 %   (EPF dividend, FY2023)
 #   SSPN : 3.60 %   (SSPN-i dividend, illustrative)
 #   GO+  : 3.45 %   (TNG GO+ annual equivalent, illustrative)
-RETURNS: np.ndarray = np.array([0.0525, 0.0310, 0.0540, 0.0360, 0.0345])
+RETURNS: np.ndarray = np.array([0.0584, 0.0311, 0.0561, 0.03760, 0.0276])
 
 # ---------------------------------------------------------------------------
 # Normalised liquidity scores  L ∈ [0, 1]^5
@@ -39,7 +39,7 @@ RETURNS: np.ndarray = np.array([0.0525, 0.0310, 0.0540, 0.0360, 0.0345])
 #   SSPN : 0.2  (longer lock-in for tax benefit; partial early withdrawal)
 #   GO+  : 1.0  (instant e-wallet redemption)
 # ---------------------------------------------------------------------------
-LIQUIDITY: np.ndarray = np.array([0.7, 0.7, 0.2, 0.2, 1.0])
+LIQUIDITY: np.ndarray = np.array([0.7, 0.7, 0.1, 0.2, 1.0])
 
 # ---------------------------------------------------------------------------
 # Statutory ceilings (MYR)
