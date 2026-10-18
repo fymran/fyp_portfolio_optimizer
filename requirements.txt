@@ -1,0 +1,6 @@
+pymoo>=0.6.1
+numpy
+pandas
+pytest
+plotly
+streamlit
