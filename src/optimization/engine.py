@@ -151,6 +151,8 @@ def run_nsga2(
     n_gen: int = 200,
     seed: int = 42,
     verbose: bool = False,
+    prob_crossover: float = 0.90,
+    prob_mutation: float = 0.20,
 ) -> OptimizationResult:
     """Run NSGA-II on a :class:`~src.optimization.problem.ShariahPortfolioProblem`.
 
@@ -168,6 +170,10 @@ def run_nsga2(
         Random seed for full reproducibility (default 42).
     verbose : bool, optional
         If True, pymoo prints per-generation progress (default False).
+    prob_crossover : float, optional
+        Crossover probability *p_c* passed to SBX (default 0.90).
+    prob_mutation : float, optional
+        Mutation probability *p_m* passed to Polynomial Mutation (default 0.20).
 
     Returns
     -------
@@ -185,10 +191,12 @@ def run_nsga2(
     -----
     Operator configuration:
 
-    * **Crossover** — Simulated Binary Crossover (SBX): ``prob_var=0.90``,
-      ``eta=20.0``, with :class:`~src.optimization.repair.SimplexRepair`.
-    * **Mutation**  — Polynomial Mutation (PM): ``prob=0.20``, ``eta=20.0``,
-      with :class:`~src.optimization.repair.SimplexRepair`.
+    * **Crossover** — Simulated Binary Crossover (SBX): ``prob=prob_crossover``
+      (default 0.90), ``prob_var=0.90``, ``eta=20.0``, with
+      :class:`~src.optimization.repair.SimplexRepair`.
+    * **Mutation**  — Polynomial Mutation (PM): ``prob=prob_mutation``
+      (default 0.20), ``eta=20.0``, with
+      :class:`~src.optimization.repair.SimplexRepair`.
     * **Repair**    — :class:`~src.optimization.repair.SimplexRepair` also
       attached to the algorithm level (selection / mating pool).
     * **Survival**  — Default NSGA-II rank-and-crowding.
@@ -197,8 +205,8 @@ def run_nsga2(
 
     algorithm = NSGA2(
         pop_size=pop_size,
-        crossover=SBX(prob_var=0.90, eta=20.0, repair=repair),
-        mutation=PM(prob=0.20, eta=20.0, repair=repair),
+        crossover=SBX(prob=prob_crossover, prob_var=0.90, eta=20.0, repair=repair),
+        mutation=PM(prob=prob_mutation, eta=20.0, repair=repair),
         repair=repair,
         eliminate_duplicates=True,
     )

@@ -35,7 +35,7 @@ RETURNS: np.ndarray = np.array([0.0584, 0.0311, 0.0561, 0.03760, 0.0276])
 # Higher score → more liquid
 #   ASB  : 0.7  (redeemable on demand, but subject to counter availability)
 #   TH   : 0.7  (withdrawal allowed with notice)
-#   KWSP : 0.2  (locked until retirement; limited early withdrawal)
+#   KWSP : 0.1  (locked until retirement; limited early withdrawal)
 #   SSPN : 0.2  (longer lock-in for tax benefit; partial early withdrawal)
 #   GO+  : 1.0  (instant e-wallet redemption)
 # ---------------------------------------------------------------------------
